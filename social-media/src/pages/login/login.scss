@@ -1,0 +1,142 @@
+.login {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  // Optional overlay for dark tint
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+
+    // ✅ Transparent background with frosted glass effect
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    min-height: 500px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      width: 90%;
+    }
+  }
+
+  .left {
+    flex: 1;
+    // background: linear-gradient(
+    //     rgba(39, 11, 96, 0.5),
+    //     rgba(39, 11, 96, 0.5)
+    //   ),
+    //   url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600")
+    //     center;
+    background-size: cover;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: rgb(16, 3, 3);
+
+    h1 {
+      font-size: 60px;
+      line-height: 70px;
+      color: #333;
+    }
+    P{
+      font-size: 40px;
+
+      color:#090638
+    }
+
+    span {
+      font-size: 14px;
+
+    }
+
+    button {
+      width: 50%;
+      padding: 10px;
+      border: none;
+      background-color: white;
+      color: rebeccapurple;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+
+    h1 {
+      color: #333;
+      font-size: 32px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      input {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-bottom: 1px solid lightgray;
+        padding: 10px;
+        font-size: 16px;
+        color: #333;
+
+        &::placeholder {
+          color: #666;
+        }
+      }
+
+      button {
+        width: 50%;
+        padding: 10px;
+        border: none;
+        background-color: #938eef;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+    }
+  }
+}

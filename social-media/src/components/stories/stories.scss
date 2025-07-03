@@ -1,0 +1,207 @@
+.storiesContainer {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  width: 600px;
+  box-sizing: border-box;
+
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #322e2e;
+    border-radius: 5px;
+  }
+}
+
+.stories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  width: max-content;
+}
+
+.story {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 200px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  span {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  }
+
+  &.addStory {
+    border: 2px dashed #5271ff;
+    background-color: #fff;
+
+    button {
+      position: absolute;
+      bottom: 40px;
+      left: 10px;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      color: white;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// Story Viewer Overlay
+.storyViewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .storyContent {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      max-height: 80%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .topText {
+      position: absolute;
+      top: 40px;
+      left: 20px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .bottomText {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .closeBtn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progressContainer {
+      display: flex;
+      gap: 5px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+
+      .progressBar {
+        flex: 1;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 0%;
+          background: white;
+        }
+
+        &.active::before {
+          animation: fill 3s linear forwards;
+        }
+
+        &.seen::before {
+          width: 100%;
+          background: rgba(167, 225, 232, 0.925);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+// ✅ Responsive Fix for Mobile Horizontal Scroll
+@media (max-width: 768px) {
+  .home {
+    overflow-x: visible !important;
+  }
+
+  .storiesContainer {
+    overflow-x: auto !important;
+  }
+
+  .stories {
+    flex-wrap: nowrap;
+    width: max-content;
+  }
+
+  .story {
+    min-width: 110px;
+  }
+}

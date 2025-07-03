@@ -1,0 +1,39 @@
+// src/styles/_mixins.scss
+
+// Define your breakpoints
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 960px;
+
+// Mobile mixin
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+// Tablet mixin
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+// Theme function helper
+@function themed($key) {
+  @return var(--#{$key});
+}
+
+// Themify mixin
+@mixin themify($themes) {
+  @each $theme-name, $theme-map in $themes {
+    .theme-#{$theme-name} & {
+      @include theme-properties($theme-map);
+    }
+  }
+}
+
+@mixin theme-properties($map) {
+  @each $key, $value in $map {
+    --#{$key}: #{$value};
+  }
+}

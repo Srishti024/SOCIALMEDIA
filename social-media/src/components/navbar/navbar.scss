@@ -1,0 +1,252 @@
+@import "../../style.scss";
+
+.navbar {
+  @include themify($themes) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 50px;
+    border-bottom: 1px solid themed("border");
+    position: sticky;
+    top: 0;
+    background-color: themed("bg");
+    color: themed("textColor");
+    z-index: 999;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      @include mobile {
+        gap: 10px;
+      }
+
+      span {
+        font-weight: bold;
+        font-size: 40px;
+        color: themed("logo");
+      }
+
+      .menuIcon {
+        display: none;
+        font-size: 28px;
+        cursor: pointer;
+
+        @include mobile {
+          display: block;
+        }
+      }
+
+      .search {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid themed("border");
+        border-radius: 5px;
+        padding: 5px;
+
+        @include mobile{
+          padding-top: 30px;
+          border: 0;
+        }
+        input {
+          border: none;
+          width: 300px;
+          background-color: transparent;
+          color: themed("textColor");
+
+          @include mobile {
+            width: 180px;
+            
+            display: block;
+          }
+
+          @include tablet {
+            width: 180px;
+          }
+        }
+
+        .searchResults {
+          position: absolute;
+          top: 35px;
+          left: 0;
+          width: 100%;
+          background-color: themed("bg");
+          color: themed("textColor");
+          border: 1px solid themed("border");
+          border-radius: 5px;
+          z-index: 10;
+          max-height: 300px;
+          overflow-y: auto;
+
+          .searchResultItem {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: themed("bgSoft");
+            }
+
+            img {
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+
+            span {
+              font-size: 14px;
+              font-weight: 500;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 200px;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+
+      @include mobile {
+        display: none;
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+
+        @include tablet {
+          display: none;
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .toast {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        animation: fadein 0.3s ease, fadeout 0.5s ease 2.5s;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        white-space: nowrap;
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+          transform: translateY(-10%);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeout {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-10%);
+        }
+      }
+    }
+
+    // ✅ Mobile right side menu (shows on MenuIcon click)
+    .mobileRightMenu {
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: themed("bgSoft");
+      border: 1px solid themed("border");
+      border-radius: 10px;
+      padding: 10px;
+      width: 250px;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      @include mobile {
+        width: 80vw;
+      }
+
+      .rightBar {
+        display: inline-block;
+      }
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+    }
+
+    // ✅ Mobile-only Logout and Profile (added safely at bottom)
+    .mobileRightUser {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1px;
+    padding: 1px 1px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: themed("bgSoft");
+    border: 1px solid themed("border");
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+      background-color: themed("bg");
+      color: themed("textColor");
+      border: 1px solid themed("border");
+      border-radius: 5px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}
+
+  }
+}
