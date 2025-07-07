@@ -42,7 +42,7 @@ const Register = () => {
     }
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_BASE_UR}/auths/register`, inputs);
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auths/register`, inputs);
       setErr(null);
     } catch (err) {
       if (err.response && err.response.data) {
