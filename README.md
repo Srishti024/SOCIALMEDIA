@@ -21,6 +21,7 @@
 - **React Router**
 - **Axios**
 - **Context API** (for Auth and Theme management)
+-  **Bootstrap**(used in background changing images of login and registerpage)
 
 ### 🔧 Backend
 - **Node.js**
