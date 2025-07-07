@@ -52,19 +52,17 @@
 
 ## 📸 Screenshots
 
-## 📸 Screenshots
+### 🔐 Login Page  
+![Login Page](./social-media/screenshots/LOGIN%20PAGE.png)
+
+### 🆕 Register Page  
+![Register Page](./social-media/screenshots/REGISTER%20PAGE.png)
 
 ### 🏡 Home Feed  
 ![Home Feed](./social-media/screenshots/HOME%20PAGE.png)
 
 ### 🙍‍♀️ User Profile  
 ![Profile Page](./social-media/screenshots/PROFILE%20PAGE.png)
-
-### 🔍 Search Users  
-![Search](./social-media/screenshots/SEARCH.png)
-
-### 🌙 Dark Mode  
-![Dark Mode](./social-media/screenshots/DARKMODE.png)
 
 ### 📝 Like and Comment  
 ![Like and Comment](./social-media/screenshots/LIKE%20AND%20COMMENT.png)
@@ -74,12 +72,6 @@
 
 ### 🧾 Posts  
 ![Posts](./social-media/screenshots/POSTS.png)
-
-### 🔐 Login Page  
-![Login Page](./social-media/screenshots/LOGIN%20PAGE.png)
-
-### 🆕 Register Page  
-![Register Page](./social-media/screenshots/REGISTER%20PAGE.png)
 
 ### 📚 Stories  
 ![Stories](./social-media/screenshots/STORIES.png)
